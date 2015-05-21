@@ -1,4 +1,5 @@
-# ghpp
-GH Provider Portal
+# GHPP
+
+## GH Provider Portal
 
 Angular app that communicates with SugarCRM REST APIs
