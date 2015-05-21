@@ -1,4 +1,4 @@
-# GHPP
+# GHPP APP
 
 ## GH Provider Portal
 
