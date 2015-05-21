@@ -66,16 +66,16 @@
 					sessionStorage.setItem('firstTime', 'false');
 					$scope.organization = broadcastProfile.getResponse();
 				}
-
-				SugarServices.fetchDocuSign(token)
-								.then( function(){
-									$scope.docuSign = broadcastEnvelope.getResponse();
-									$scope.profileLoaded = false;
-								});
 				
 			} else {
 				$location.path('/');
 			}
+			
+			SugarServices.fetchDocuSign(token)
+							.then( function(){
+								$scope.docuSign = broadcastEnvelope.getResponse();
+								$scope.profileLoaded = false;
+							});
 			// This should be moved to toaster directive
 			$('#toast-container').removeClass('login-toaster');
 		}
