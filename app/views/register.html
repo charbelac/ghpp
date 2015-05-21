@@ -1,0 +1,66 @@
+<div class="provider-forms">
+	<h2>Registration</h2>
+	<div class="ghpp-form-register">
+		<form name="registrationForm" ng-submit="onRegistration(registrationForm.$valid)" novalidate>
+			<small>All fields are required!</small>
+			<div class="left">
+				<div class="fieldset">
+					<label>Organization Name:</label>
+					<input 	type="text" class="contactInputText" name="organization" 
+							ng-model="provider.organizationName"
+							required max-length="100" ng-pattern="/^([a-zA-Z0-9'., _-])*$/">
+					<span class="input-error" ng-show="registrationForm.organization.$error.required && registrationForm.organization.$dirty">Required</span>
+					<span class="input-error long-input-error" ng-show="registrationForm.organization.$error.pattern">Organization should contain letters and/or numbers only </span>
+				</div>
+				<div class="fieldset">
+					<label>First Name:</label>
+					<input 	type="text" class="contactInputText" required ng-model="provider.firstName" name="firstName" 
+							max-length="100" ng-pattern="/^([a-zA-Z0-9'., _-])*$/">
+					<span class="input-error" ng-show="registrationForm.firstName.$error.required && registrationForm.firstName.$dirty">Required</span>
+					<span class="input-error long-input-error" ng-show="registrationForm.firstName.$error.pattern">First name should contain letters and/or numbers only </span>
+				</div>
+
+				<div class="fieldset">
+					<label>Last Name:</label>
+					<input 	type="text" class="contactInputText" required ng-model="provider.lastName" name="lastName" 
+							max-length="100" ng-pattern="/^([a-zA-Z0-9'., _-])*$/"> 
+					<span class="input-error" ng-show="registrationForm.lastName.$error.required && registrationForm.lastName.$dirty">Required</span>
+					<span class="input-error long-input-error" ng-show="registrationForm.lastName.$error.pattern">Last name should contain letters and/or numbers only </span>
+				</div>
+			</div>
+			<div class="right">
+				<div class="fieldset">
+					<label>Email:</label>
+					<input type="text" class="contactInputText" required ng-model="provider.email" name="email" 
+							max-length="100" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
+					<span class="input-error" ng-show="registrationForm.email.$error.required && registrationForm.email.$dirty">Required</span>
+					<span class="input-error" ng-show="registrationForm.email.$error.pattern">Please enter a valid email</span>
+					
+				</div>
+
+				<div class="fieldset">
+					<label>Password:</label>
+					<input  type="password" class="contactInputText" required ng-model="provider.password" name="password" 
+							max-length="100" ng-pattern="/^(?=.{8,})([a-zA-Z0-9' _-])(?=.*[0-9]).*$/">
+					<span class="input-error" ng-show="registrationForm.password.$error.required && registrationForm.password.$dirty">Required</span>
+					<span class="input-error password-specific long-input-error" ng-show="registrationForm.password.$error.pattern">Password must be at least 8 characters and contain one or more Capital letters and one or more numbers.</span>
+				</div>
+
+				<div class="fieldset">
+					<label>Confirm Password:</label>
+					<input type="password" class="contactInputText" required ng-model="provider.passwordConfirmation" data-match="provider.password" name="passwordConfirmation" max-length="100">
+					<span class="input-error" ng-show="registrationForm.passwordConfirmation.$error.required && registrationForm.passwordConfirmation.$dirty">Required</span>
+					<span class="input-error" ng-show="registrationForm.passwordConfirmation.$error.match">Passwords must be identical</span>
+				</div>
+
+				<div class="fieldset button-wrapper">
+					<input type="submit" value="Register" ng-class="{ 'disable-btn' : registrationForm.$invalid} " class="submit-btn" ng-disabled="registrationForm.$invalid">
+				</div>
+				<div class="ps-note">
+			      <span>-OR-</span>
+			      <a href="#/" class="submit-btn danger">Login</a>
+			    </div>
+			</div>
+		</form>
+	</div>
+</div>

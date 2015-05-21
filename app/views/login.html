@@ -1,0 +1,26 @@
+<div class="provider-forms">
+  <h2>Provider Login</h2>
+  <form name="providerLogin" ng-submit="onFormSubmit()" class="ghpp-form-login" novalidate ng-init="notifyUser()">
+    <div class="login-view">
+      <div class="fieldset">
+        <label>Email:</label>
+        <input type="email" placeholder="Please type your email" ng-model="user.email" class="contactInputText" name="email" max-length="100" 
+                required ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/">
+        <span class="input-error" ng-show="providerLogin.email.$error.required && providerLogin.email.$dirty">Required</span>
+        <span class="input-error" ng-show="providerLogin.email.$error.pattern">Please enter a valid email</span>
+      </div>
+
+      <div class="fieldset">
+        <label>Password:</label>
+        <input type="password" placeholder="Please type your password" required ng-model="user.password" class="contactInputText" name="password">
+        <span class="input-error" ng-show="providerLogin.password.$error.required && providerLogin.password.$dirty">Required</span>
+      </div>
+
+      <input type="submit" value="Login" class="submit-btn" ng-class="{ 'disable-btn' : providerLogin.$invalid} " ng-disabled="providerLogin.$invalid">
+      <div class="ps-note">
+        <span>-OR-</span>
+        <a href="#/register" class="submit-btn danger">Register</a>
+      </div>
+    </div>
+  </form>
+</div>

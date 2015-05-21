@@ -1,0 +1,252 @@
+<div class="provider-forms provider-profile" id="provider-profile">
+	
+	<div id="spinner" ng-show="profileLoaded" spinner></div>
+
+	<div class="profile-header">
+		<div class="grid_9 col1 fleft account-tools">
+			<p><span class="welcome-message">Welcome,</span> <span>{{ userEmail }}!</span></p>
+			<a title="Refresh page" class="refresh-page" ng-click="refresh()"></a>	
+			<a title="Sign Out" class="sign-out" ng-click="signOut()"></a>	
+		</div>
+		<div class="grid_15 col1 account-name">{{ organization.name }}</div>
+	</div>
+	<div ghpp-tooltip ng-show="isToolTip" class="ghpp-tooltip" id="ghpp-tooltip"></div>
+	
+
+	<form name="facilityInfoForm" ng-submit="saveFacility(facilityInfoForm.$valid)" novalidate>
+
+		<div class="left-rail">
+			<div class="tools">
+				<span>Facility Info</span>
+				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'"></button>
+			</div>
+			
+			<div class="general-info" id="general-info">
+				<div>
+					<label>Website:</label>
+					<input type="url" ng-model="organization.website" name="website" placeholder="http://www.example.com" maxlength="100">
+					<span class="edit-icon"></span>
+					<span class="input-error" ng-show="facilityInfoForm.website.$error.url">Not a valid URL</span>
+				</div>
+
+				<div>
+					<label>Office Phone: *</label>
+					<input type="text" ng-model="organization.officePhone" name="officePhone" placeholder="xxx-xxx-xxxx" required ng-pattern="/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/">
+					<span class="edit-icon"></span>
+					<span class="input-error" ng-show="facilityInfoForm.officePhone.$error.pattern">Please enter a valid phone number</span>
+					<span class="input-error" ng-show="facilityInfoForm.officePhone.$error.required && facilityInfoForm.officePhone.$dirty">Required</span>
+				</div>
+
+				<div>
+					<label>Fax:</label>
+					<input type="text" ng-model="organization.fax" name="fax" placeholder="xxx-xxx-xxxx" ng-pattern="/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/">
+					<span class="edit-icon"></span>
+					<span class="input-error" ng-show="facilityInfoForm.fax.$error.pattern">Please enter a valid fax number</span>
+				</div>
+
+				<div>
+					<label>Manager:</label>
+					<input type="text" ng-model="organization.managerName" name="managerName" placeholder="John Smith" maxlength="40">
+					<span class="edit-icon"></span>
+				</div>
+
+				<div>
+					<label>Manager Cell:</label>
+					<input type="text" ng-model="organization.managerMobile" name="managerMobile" placeholder="xxx-xxx-xxxx" ng-pattern="/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/">
+					<span class="edit-icon"></span>
+					<span class="input-error" ng-show="facilityInfoForm.managerMobile.$error.pattern">Please enter a valid phone number</span>
+				</div>
+
+				<div class="org-desc">
+					<label>Description:</label>
+					<textarea ng-model="organization.description" placeholder="Facility Description" maxlength="270"></textarea>
+					<p><em>Characters remaining: <span>{{270 - organization.description.length}}</span></em></p>
+					<span class="edit-icon"></span>
+				</div>
+			</div>
+
+			<div class="address-info">
+		
+				<address>
+					<div>
+						<label>Street: *</label>
+						<input type="text" ng-model="organization.street" name="street" placeholder="1234 Street Name, Suite" required maxlength="100">
+						<span class="edit-icon"></span>
+						<span class="input-error" ng-show="facilityInfoForm.street.$error.required && facilityInfoForm.street.$dirty">Required</span>
+						<!-- <span class="input-error" style="top:-61px;" ng-show="facilityInfoForm.street.$error.pattern">Street should contain letters and/or numbers only</span> -->
+					</div>
+					<div>
+						<label>City: *</label>
+						<input type="text" ng-model="organization.city" name="city" placeholder="City" required maxlength="50">
+						<span class="edit-icon"></span>
+						<span class="input-error" ng-show="facilityInfoForm.city.$error.required && facilityInfoForm.city.$dirty">Required</span>
+						<!-- <span class="input-error" style="top:-61px;" ng-show="facilityInfoForm.city.$error.pattern">City should contain letters and/or numbers only</span> -->
+					</div>
+					<div>
+						<label>State: *</label>
+						<input type="text" ng-model="organization.state" name="state" placeholder="State" required maxlength="20">
+						<span class="edit-icon"></span>
+						<span class="input-error" ng-show="facilityInfoForm.state.$error.required && facilityInfoForm.state.$dirty">Required</span>
+						<!-- <span class="input-error" style="top:-61px;" ng-show="facilityInfoForm.state.$error.pattern">State should contain letters and/or numbers only</span> -->
+					</div>
+					<div>
+						<label>Zip Code: *</label>
+						<input type="text" ng-model="organization.zipCode" name="zipCode" placeholder="xxxxx" ng-pattern="/^(\d{5}-\d{4}|\d{5})$/" required maxlength="5">
+						<span class="edit-icon"></span>
+						<span class="input-error" ng-show="facilityInfoForm.zipCode.$error.required && facilityInfoForm.zipCode.$dirty">Required</span>
+						<span class="input-error" ng-show="facilityInfoForm.zipCode.$error.pattern">Please enter a valid zip code</span>
+					</div>
+					<div>
+						<label>Country: *</label>
+						<input type="text" ng-model="organization.country" name="country" placeholder="USA" required maxlength="30">
+						<span class="edit-icon"></span>
+						<span class="input-error" ng-show="facilityInfoForm.country.$error.required && facilityInfoForm.country.$dirty">Required</span>
+						<!-- <span class="input-error" style="top:-61px;" ng-show="facilityInfoForm.country.$error.pattern">City should contain letters and/or numbers only</span> -->
+					</div>
+				</address>
+			</div>
+
+			<div class="modification-date">
+				<label>Modification Date:</label>
+				<p>{{organization.modifiedOn}}</p>
+			</div>
+
+			<div class="tools">
+				<span>Facility Images</span> 
+				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'"></button>
+			</div>
+
+			<ul class="facility-images">
+				<li ng-repeat="image in organization.images" flow-init flow-file-added="onSuccess($file, $message)" flow-total-size="500">
+					
+					<div class="thumbnail" ng-show="!image.source">
+						<img src="images/image-placeholder.84226132.jpg" alt="No Image Available">
+					</div>
+
+					<div class="thumbnail ng-hide" ng-show="image.source">
+						<img flow-img="$flow.files[0]" ng-src="{{image.source}}" class="user-img" flow-src>
+					</div>
+
+					<div class="buttons">
+						<span class="btn btn-primary" flow-btn="">Upload</span>
+						<!-- <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Upload</span>
+						<span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change</span>
+						<span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">Remove</span> -->
+					</div>
+				</li>
+			</ul>
+
+		</div>
+
+		<div class="right-rail">
+			
+			<div class="tools">
+				<span>Document Signatures</span>
+			</div>
+
+			<div id="docu-sign">
+				<div class="list-doc-required" ng-show="docuSign.signatures.length">
+					<p class="list-title">Signature required</p>
+					<p class="admin-message">Your profile will remain disabled until you sign all the required documents below. After signing, please click the refresh <span>icon</span> to enable your profile. <em class="down-arrow-of-admin"></em></p>
+					<ul ng-repeat="doc in docuSign.signatures">
+						<li>
+							<a href="{{doc.signatureUrl}}" title="{{doc.message}}" target="_blank"> {{doc.subject}} </a>
+							<p>
+								<span>Sent on: </span>
+								<span class="doc-date">{{doc.sentDateTime}}</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+
+				<p class="list-title">Completed documents</p>
+				<ul class="list-doc-completed" ng-repeat="doc in docuSign.documentHistory">
+					<li>
+						<a href="{{doc.completedUrl}}" title="{{doc.message}}" target="_blank"> {{doc.subject}}</a>
+						<p>
+							<span>Signed on: </span>
+							<span class="doc-date">{{doc.completedDateTime}}</span>
+						</p>
+					</li>
+				</ul>
+			</div>
+
+			<div class="tools">
+				<span>Manage Vacancies</span>
+				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'"></button>
+				<button type="submit" class="add-new" title="Add New Vacancy" ng-click="addVacancy()" id="add-new-btn" 
+						ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'" 
+						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" 
+						scroll-on-creation></button>
+			</div>
+
+			<ul class="vacancy">
+				<li ng-repeat="vacancy in organization.vacancies" ng-class="vacancyState" class="action-ready">
+					<div flow-init flow-file-added="onSuccess($file, $message)" class="image">
+						<div class="thumbnail" ng-show="!vacancy.image">
+							<img src="images/image-placeholder.84226132.jpg" alt="No Image Available">
+						</div>
+
+						<div class="thumbnail ng-hide" ng-show="vacancy.image">
+							<img flow-img="$flow.files[0]" ng-src="{{vacancy.image}}" class="user-img vacancy-image" flow-src>
+						</div>
+
+						<div class="buttons">
+							<span class="btn btn-primary" flow-btn="">Upload</span>
+							<!-- <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Upload</span>
+							<span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change</span>
+							<span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">Remove</span> -->
+						</div>
+					</div>
+					<div class="details">
+						<div class="room-type">
+							<div class="vacancy-name">
+								<label><u>Vacancy Name*</u></label>
+								<p>
+									<input type="text" ng-model="vacancy.name" name="vacancyName{{$index}}" placeholder="Unit 1" required>
+									<span class="input-error" ng-show="facilityInfoForm.vacancyName{{$index}}.$error.required && facilityInfoForm.vacancyName{{$index}}.$dirty">Required</span>
+									<span class="edit-icon"></span>
+								</p>
+							</div>
+							<p><u>Vacancy Type*</u></p>
+							<div id="roomType">
+								<select name="type{{$index}}" id="type" ng-model="vacancy.type" required>
+									<option value="">Select an option
+									<option label="Single Room (Private)" value="SingleRoom" selected="selected">Single Room (Private)
+									<option label="Oversized Single (Private)" value="Oversized">Oversized Single (Private)
+									<option label="Shared Room (Semi Private)" value="SharedRoom">Shared Room (Semi Private)
+									<option label="Master Bedroom" value="MasterBedroom">Master Bedroom
+									<option label="Studio" value="Studio">Studio
+									<option label="One Bedroom" value="OneBedroom">One Bedroom
+									<option label="Two Bedroom" value="TwoBedroom">Two Bedroom
+								</select>
+								<span class="input-error" ng-show="facilityInfoForm.type{{$index}}.$error.required && facilityInfoForm.type{{$index}}.$dirty">Required</span>
+							</div>
+						</div>
+						<div class="calendar" ng-controller="DatePickerController">
+							<p class="calendar-title"><u>Availability*</u></p>
+							<p class="input-group">
+				              <input type="text" placeholder="MM.dd.yyyy" class="form-control" datepicker-popup="{{'MM.dd.yyyy'}}" ng-model="vacancy.availability" is-open="opened" min-date="'01-01-2015'" max-date="'01-01-2020'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" true close-text="Close" ng-value="vacancy.availability" name="availabilityCalendar{{$index}}">
+				              <span class="input-group-btn">
+				                <button type="button" class="btn btn-default calendar-date" ng-click="open($event)">
+				                	<i class="glyphicon glyphicon-calendar"></i></button>
+				              </span>
+				            </p>
+				            <span class="input-error" ng-show="facilityInfoForm.availabilityCalendar{{$index}}.$error.required && facilityInfoForm.availabilityCalendar{{$index}}.$dirty">Required</span>
+						</div>
+						<div class="description-section">
+							<p><u>Vacancy Description</u> <em>Characters remaining: <span>{{270 - vacancy.description.length}}</span></em></p>
+							<textarea class="description" placeholder="Vacancy Description" ng-model="vacancy.description" maxlength="270"></textarea>
+							<span class="edit-icon"></span>
+						</div>
+					</div>
+					<div class="icon" title="Delete Vacancy" ng-click="removeVacancy($event)" trash-item>
+						<div class="lid"></div>
+						<div class="lidcap"></div>
+						<div class="bin"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>
