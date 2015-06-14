@@ -6,10 +6,10 @@
 		.module('GHPP')
 		.directive('flowSrc', uploadImageOnClick);
 
-	uploadImageOnClick.$inject = ['SugarServices', 'broadcastProfile'];
+	uploadImageOnClick.$inject = ['SugarServices', 'broadcastProfile', '$timeout'];
 
 
-	function uploadImageOnClick(SugarServices, broadcastProfile) {
+	function uploadImageOnClick(SugarServices, broadcastProfile, $timeout) {
 		return {
 			scope: true,
 			restrict: 'A',
@@ -37,7 +37,9 @@
 											.then(function() {
 												SugarServices.getProfile(tkn)
 													.then( function(){
-														scope.$parent.$parent.$parent.organization = broadcastProfile.getResponse();
+														$timeout(function(){
+															scope.$parent.$parent.$parent.organization = broadcastProfile.getResponse();
+														}, 2000);
 													});
 											});
 

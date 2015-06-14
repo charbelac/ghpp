@@ -18,7 +18,7 @@
 		<div class="left-rail">
 			<div class="tools">
 				<span>Facility Info</span>
-				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'"></button>
+				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid} " class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 			</div>
 			
 			<div class="general-info" id="general-info">
@@ -113,7 +113,7 @@
 
 			<div class="tools">
 				<span>Facility Images</span> 
-				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'"></button>
+				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid }" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 			</div>
 
 			<ul class="facility-images">
@@ -141,42 +141,11 @@
 		<div class="right-rail">
 			
 			<div class="tools">
-				<span>Document Signatures</span>
-			</div>
-
-			<div id="docu-sign">
-				<div class="list-doc-required" ng-show="docuSign.signatures.length">
-					<p class="list-title">Signature required</p>
-					<p class="admin-message">Your profile will remain disabled until you sign all the required documents below. After signing, please click the refresh <span>icon</span> to enable your profile. <em class="down-arrow-of-admin"></em></p>
-					<ul ng-repeat="doc in docuSign.signatures">
-						<li>
-							<a href="{{doc.signatureUrl}}" title="{{doc.message}}" target="_blank"> {{doc.subject}} </a>
-							<p>
-								<span>Sent on: </span>
-								<span class="doc-date">{{doc.sentDateTime}}</span>
-							</p>
-						</li>
-					</ul>
-				</div>
-
-				<p class="list-title">Completed documents</p>
-				<ul class="list-doc-completed" ng-repeat="doc in docuSign.documentHistory">
-					<li>
-						<a href="{{doc.completedUrl}}" title="{{doc.message}}" target="_blank"> {{doc.subject}}</a>
-						<p>
-							<span>Signed on: </span>
-							<span class="doc-date">{{doc.completedDateTime}}</span>
-						</p>
-					</li>
-				</ul>
-			</div>
-
-			<div class="tools">
 				<span>Manage Vacancies</span>
-				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'"></button>
+				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 				<button type="submit" class="add-new" title="Add New Vacancy" ng-click="addVacancy()" id="add-new-btn" 
-						ng-disabled="facilityInfoForm.$invalid || docuSign.signatures.length != '0'" 
-						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" 
+						ng-disabled="facilityInfoForm.$invalid" 
+						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid}" 
 						scroll-on-creation></button>
 			</div>
 

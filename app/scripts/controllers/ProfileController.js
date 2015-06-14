@@ -22,9 +22,7 @@
 	function ProfileController ($scope, $location, SugarServices, sharedDate, broadcastProfile, broadcastEnvelope) {
 
 		$scope.addVacancy = addVacancy;
-		$scope.docuSign = {};
 		$scope.isToolTip = false;
-		$scope.profileLoaded = true;
 		$scope.refresh = refresh;
 		$scope.removeVacancy = removeVacancy;
 		$scope.saveFacility = saveFacility;
@@ -71,11 +69,6 @@
 				$location.path('/');
 			}
 			
-			SugarServices.fetchDocuSign(token)
-							.then( function(){
-								$scope.docuSign = broadcastEnvelope.getResponse();
-								$scope.profileLoaded = false;
-							});
 			// This should be moved to toaster directive
 			$('#toast-container').removeClass('login-toaster');
 		}
@@ -126,19 +119,10 @@
 
 		function refresh() {
 
-			$scope.profileLoaded = true;
-
 			SugarServices
 				.getProfile(token)
 					.then( function(){
 						$scope.organization = broadcastProfile.getResponse();
-					});
-
-			SugarServices
-				.fetchDocuSign(token)
-					.then( function(){
-						$scope.docuSign = broadcastEnvelope.getResponse();
-						$scope.profileLoaded = false;
 					});
 		}
 

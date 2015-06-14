@@ -26,8 +26,7 @@
 			loginProvider: loginProvider,
 			registerProvider: registerProvider,
 			updateProfile: updateProfile,
-			getProfile: getProfile,
-			fetchDocuSign: fetchDocuSign
+			getProfile: getProfile
 		};
 
 		/////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,33 +129,27 @@
 							);
 		}
 
-		/** 
-		 * @function fetchDocuSign
-		 * @desc Returns a list of all PDF documents assigned to said user 
-		 * @param {string} tkn - Authorization Token 
-		 * @memberOf GHPP.SugarServices
-		 * @since 1.1
-	 	 */
+		
 
-		function fetchDocuSign(tkn) {
+		// function fetchDocuSign(tkn) {
 
-			return $http.get('http://' + host + '/docsandsignatures?AuthToken=' + tkn)
-			//return $http.get('http://localhost:8888/dist/data/docusign.json')
-						.then( function(response){
-							var doc = response.data;
+		// 	return $http.get('http://' + host + '/docsandsignatures?AuthToken=' + tkn)
+		// 	//return $http.get('http://localhost:8888/dist/data/docusign.json')
+		// 				.then( function(response){
+		// 					var doc = response.data;
 							
-							for (var i=0; i<doc.signatures.length; i++)
-								doc.signatures[i].sentDateTime = moment.utc(doc.signatures[i].sentDateTime).local().format('MM-DD-YYYY');	
+		// 					for (var i=0; i<doc.signatures.length; i++)
+		// 						doc.signatures[i].sentDateTime = moment.utc(doc.signatures[i].sentDateTime).local().format('MM-DD-YYYY');	
 							
-							for (var j=0; j<doc.documentHistory.length; j++)
-								doc.documentHistory[j].completedDateTime = moment.utc(doc.documentHistory[j].completedDateTime).local().format('MM-DD-YYYY');	
+		// 					for (var j=0; j<doc.documentHistory.length; j++)
+		// 						doc.documentHistory[j].completedDateTime = moment.utc(doc.documentHistory[j].completedDateTime).local().format('MM-DD-YYYY');	
 							
-							broadcastEnvelope.setResponse(doc);
+		// 					broadcastEnvelope.setResponse(doc);
 							
-						}, function(reason){
-							toaster.pop('error', 'Sorry, Something went wrong.', 'Please try again!');
-						});
-		}
+		// 				}, function(reason){
+		// 					toaster.pop('error', 'Sorry, Something went wrong.', 'Please try again!');
+		// 				});
+		// }
 	}
 
 	/** @function broadcastProfile 
