@@ -733,6 +733,10 @@ small {
     background-color: #fff;
     //transition: all .8s ease;
 
+    &:last-child {
+      border-bottom: 0;  
+    }
+
     .edit-icon {
       position: absolute;
       right: 0;
@@ -2018,6 +2022,98 @@ small {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
+
+
+
+.bottom-profile {
+  float: left;
+  width: 100%;
+  border-top: 3px solid #444b5a;
+  padding: 20px 0;
+  margin-top: 40px;
+  transition-property: background-color;
+  transition-duration: .3s; 
+
+  &:hover {
+    background-color: rgba(245, 245, 245, .9);
+    text-decoration: none;
+  }
+
+  > div {
+    padding-left: 20px;
+  }
+
+  .notes {
+    width: 100%;
+    clear: both;
+    font-size: 17px;
+    padding-top: 30px;
+    color: rgb(68, 75, 90);
+    text-align: center;
+    font-weight: 700;
+  }
+
+  ul {
+    padding: 23px 20px 0 0;
+
+    li {
+      float: left;
+      font-size: 18px;
+      padding-right: 80px;
+      font-weight: 700;
+      color: rgb(98, 119, 132);
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      span {
+        color: rgb(245, 128, 32);
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 995px) {
+
+  .bottom-profile {
+    > div {
+      width: 100%;
+      text-align: center;   
+    }
+
+    > ul {
+      width: 100%;
+      padding-left: 30px;
+
+      li {
+        padding-right: 22%;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .bottom-profile {
+
+    ul {
+      padding-left: 0;
+
+      li {
+        padding-right: 0;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
 
 
 

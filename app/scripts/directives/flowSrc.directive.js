@@ -37,8 +37,15 @@
 											.then(function() {
 												SugarServices.getProfile(tkn)
 													.then( function(){
+														var date = new Date(), 
+															rand = Number(date),
+															qs = '?rand=' + rand;
 														$timeout(function(){
 															scope.$parent.$parent.$parent.organization = broadcastProfile.getResponse();
+															if (elementType === 'facility')
+																scope.organization.images[id].source += qs;
+															else 
+																scope.organization.vacancies[id].image += qs;
 														}, 2000);
 													});
 											});

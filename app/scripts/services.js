@@ -108,10 +108,13 @@
 	 	 */
 
 		function getProfile(tkn) {
+
+			var rand = Math.random().toString(36).substring(7);
 			
-			return $http.get('http://' + host + '/providerdata?AuthToken=' + tkn)
+			return $http.get('http://' + host + '/providerdata?AuthToken=' + tkn + '&rand=' + rand)
 						.then(	function(response){
 									broadcastProfile.setResponse(response.data);
+									console.log('HERE', response.data.images[2].source);
 									if ($location.path() === '/') $location.path('/profile');
 							}, 	function(reason){ 
 									var text = reason.statusText,
