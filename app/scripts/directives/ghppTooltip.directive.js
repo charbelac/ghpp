@@ -21,7 +21,7 @@
 				y0 = tooltip.offset().top,
 				objHint1 = $('#general-info'), objHint2 = $('#add-new-btn'), objHint3 = $('#add-new-btn');
 				
-			tooltip.css({ 'left': objHint1.offset().left - x0, 'top': objHint1.offset().top - y0 });
+			tooltip.css({ 'left': objHint1.offset().left - x0, 'top': objHint1.offset().top - 60 - y0 });
 		
 			tooltipInfo.addClass('translate-tooltip');
 			
@@ -31,22 +31,22 @@
 				tooltipInfo.removeClass('translate-tooltip');
 				if (counter === 1) {					
 					tooltip.css({
-						'left': objHint2.offset().left - 280 - x0,
-						'top': objHint2.offset().top - 40 - y0
+						'left': objHint2.offset().left - 282 - x0,
+						'top': objHint2.offset().top - 120 - y0
 					});
 					tooltipInfo.addClass('translate-tooltip');
 					parent.addClass('step-add-new');
 				} else if (counter === 2) {
 					tooltip.css({
 						'left': objHint3.offset().left - 280 - x0,
-						'top': objHint3.offset().top + 240 - y0
+						'top': objHint3.offset().top + 200 - y0
 					});
 					tooltipInfo.addClass('translate-tooltip');
 					parent.addClass('step-delete');
 				} else if (counter === 3) {
 					tooltip.css({
-						'left': objHint3.offset().left - 250 - x0,
-						'top': objHint3.offset().top - 55 - y0
+						'left': objHint3.offset().left - 265 - x0,
+						'top': objHint3.offset().top - 120 - y0
 					});
 					tooltipInfo.addClass('translate-tooltip');
 					parent.addClass('step-save');

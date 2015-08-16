@@ -1,0 +1,584 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Tech Talk | AngularJS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/6df2b309.favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/031d53c4.vendor.css">
+    
+    
+    
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="styles/7274b355.main.css">
+    <script src="scripts/vendor/fbe20327.modernizr.js"></script>
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="jmpress">
+      
+      <div id="intro" class="step" data-x="0" data-y="0" data-rotate="0" data-scale="0">
+        <p class="title"> <span class="medium-text">Modern</span> <br> <span class="large-text unique-color">Web Applications</span> <br> <span class="small-text">with</span> <br><br><br><img src="images/d41094cc.AngularJS-large.png" alt=""></p>
+      </div>
+      
+      <div id="about-me" class="step" data-x="0" data-y="600" data-rotate="0" data-scale="0">
+        <p class="title large-text underline"> Charbel Abou Chaaya</p>
+        <ul>
+          <li><span class="rosetta">Front-End Engineer</span></li>
+          <li class="twitter"><i class="fa fa-twitter"></i> AbouChaaya</li>
+        </ul>
+
+      </div>
+
+      <div id="web-app" class="step" data-x="1300" data-y="600" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">What is a <span class="unique-color">Web Application </span>?</p>
+        <p class="text-center will-fade" data-jmpress="fade"><img src="images/webapp/5ad2e15b.webapp.png" alt=""></p>
+          <ul data-jmpress="drive-right after 500ms" class="will-drive">
+            <li>Software program runs on Web Server</li>
+            <li>Consistent User Interface</li>
+            <li>Data is saved remotely</li>
+          </ul>
+      </div>
+
+      <div id="web-app-troika" class="step" data-x="1300" data-y="1200" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">Web Application <span class="unique-color">troika</span></p>
+        
+        <ul style="margin-bottom:0;">
+          <li data-jmpress="drive-right after 500ms" class="will-drive-right">
+            <img src="images/52a5405f.html5-css3-javascript.jpg" alt="">
+          </li>
+        </ul>
+        <ul style="margin-top:0;">
+          <li data-jmpress="fade after 5500ms" class="will-fade">
+            <img src="images/6a601699.drinking-game.jpg" alt="">
+          </li>
+        </ul>
+      </div>
+
+      <div id="fe-dev-bff" class="step" data-x="1300" data-y="1800" data-rotate="0" data-scale="0">
+        <p class="title large-text underline" style="top: -18px; position: relative;">Front End Developers <span class="unique-color">bff</span></p>
+        
+        <ul>
+          <li data-jmpress="drive-right after 500ms" class="will-drive-right">
+            <img src="images/0b35e591.ui-bff.png" alt="">
+          </li>
+        </ul>
+      </div>
+
+      <div id="fe-dev-bff-not" class="step" data-x="1300" data-y="1800" data-rotate="0" data-scale="0">
+        <p class="title large-text underline" style="position: relative;">Front End Developers <span class="unique-color">bff</span> <span class="no-more"><img src="images/8ea3340c.no-more.png"></span></p>
+        
+        <div class="text-center"><br>
+            <img src="images/3d32b8ec.jquery-spaghetti.jpg" alt="" width="670">
+        </div>
+      </div>
+
+
+      <div id="spa-architecture" class="step" data-x="1300" data-y="2400" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">The <span class="unique-color">SPA</span> architecture</p>
+        
+        <div data-jmpress="fade after 5500ms" class="will-fade">
+          <div id="client-side" class="my-rectangle">
+            <p>Client-Side</p>
+            <div class="app-wrapper">
+              <p class="text-center">Browser</p>
+              <div class="small-box">
+                <h5><u>HTML shell</u></h5>
+                <p><code>&lt;div id="placeholder"/&gt;</code></p>
+              </div>
+            </div>
+
+            <div class="arrows">
+              <p class="right-arrow">AJAX Request</p>
+              <p class="left-arrow">HTML</p>
+            </div>
+
+            <div class="arrows push-arrow-down">
+              <p class="right-arrow">AJAX Request</p>
+              <p class="left-arrow">JSON/XML</p>
+            </div>
+          </div>
+
+          
+
+          <div id="server-side" class="my-rectangle">
+            <p>Server-Side</p>
+            <div class="app-wrapper">
+              <p class="text-center">Server</p>
+              <div class="tiny-box">
+                <h5 class="text-center">HTML templates</h5>
+              </div>
+              <div class="tiny-box">
+                <h5 class="text-center">Web API</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mvc-server" class="step" data-x="1300" data-y="3000" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">The <span class="unique-color">MVC</span> pattern</p>
+        
+        <div>
+          <div id="client-side" class="my-rectangle">
+            <p>Client-Side</p>
+            <div class="app-wrapper">
+              
+            </div>
+          </div>
+
+          <div id="server-side" class="my-rectangle">
+            <p>Server-Side</p>
+            <div class="app-wrapper">
+              <p class="box-rounded">Models</p>
+              <p class="box-rounded">Templates</p>
+              <p class="box-rounded">Routers</p>
+              <p class="box-rounded">Controllers</p>
+              <p class="box-rounded">Data Access</p>
+              <p class="box-rounded">Web Components</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mvc-browser" class="step" data-x="1300" data-y="3000" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">The <span class="unique-color">MVC</span> pattern</p>
+        
+        <div>
+          <div id="client-side" class="my-rectangle">
+            <p>Client-Side</p>
+            <div class="app-wrapper">
+              <p class="box-rounded">Models</p>
+              <p class="box-rounded">Templates</p>
+              <p class="box-rounded">Routers</p>
+              <p class="box-rounded">Controllers</p>
+              <p class="box-rounded">Data Access</p>
+              <p class="box-rounded">Web Components</p>
+            </div>
+          </div>
+
+          <div id="server-side" class="my-rectangle">
+            <p>Server-Side</p>
+            <div class="app-wrapper">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mvc" class="step" data-x="2000" data-y="3000" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">Arrival of <span class="unique-color">MVC/mv*</span> Frameworks</p>
+        
+        <ul>
+          <li data-jmpress="fade after 5500ms" class="will-fade">
+            <img src="images/5f5bf0ae.mvc.jpg" alt="">
+          </li>
+        </ul>
+
+
+      </div>
+
+      <div id="why-angular" class="step" data-x="2000" data-y="3600" data-rotate="0" data-scale="0">
+        <p class="title large-text underline"> Why Angular<span class="unique-color">JS</span> </p>
+
+        <ul data-jmpress="fade after 200ms" class="will-fade">
+          <li>Maintained by Google</li>
+          <li>Increasing Community</li>
+          <li class="unique-color"><span >Forward Compatibility with Web Standards</span></li>
+        </ul>
+        
+        <table data-jmpress="drive-right after 5000ms" class="will-drive-right">
+          <thead>
+            <tr>
+              <th>Metrics</th>
+              <th>AngularJS</th>
+              <th>Backbone.js</th>
+              <th>Ember.js</th>
+              <th>React</th>
+            </tr>
+          </thead> 
+          <tbody>
+            <tr>
+              <td>Stars on Github</td>
+              <td>~39K</td>
+              <td>~22K</td>
+              <td>~14K</td>
+              <td>~23K</td>
+            </tr>
+            <tr class="odded">
+              <td>Github Contributors</td>
+              <td>1237</td>
+              <td>260</td>
+              <td>494</td>
+              <td>410</td>
+            </tr>
+            <tr>
+              <td>Third-Party Modules</td>
+              <td>1430</td>
+              <td>254</td>
+              <td>1039</td>
+              <td>n/a</td>
+            </tr>
+            <tr class="odded">
+              <td>StackOverflow Questions</td>
+              <td>>100K</td>
+              <td>>20k</td>
+              <td>>20K</td>
+              <td>>5k</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="new-terms" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        <ul data-jmpress="fade after 500ms" class="will-fade">
+          <li>Modules</li>
+          <li>Dependency Injection</li>
+          <li>Routing</li>
+          <li>Controllers</li>
+          <li>Views</li>
+          <li>Scope &amp; data-binding</li>
+          <li>Directives</li>
+          <li>Factory</li>
+        </ul>
+        
+      </div>
+
+      <div id="new-terms-module" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        
+        <div class="info-container">
+          <ol class="info-modal">
+            <li>Think of a module as a container for the different parts of your application</li>
+            <li>The module initialize your app or a feature of your app and register the modules on which it depends</li>
+            <li><pre>
+angular
+    .module('<span style="background: yellow;">myApp</span>', [
+            'ngRoute', 
+            'ngAnimate', 
+            'validation.match', 
+            'ui.bootstrap', 
+            'toaster']);
+
+
+<code>&lt;div ng="<span style="background: yellow;">myApp</span>">
+
+  &lt;div ng-view="">&lt;/div>
+
+&lt;/div&gt;</code>
+          </pre></li>
+          </ol>
+          <ul>
+            <li>Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li class="fade-me">Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="new-terms-di" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        
+        <div class="info-container">
+          <ol class="info-modal more-to-right">
+            <li>It's a design pattern that deals with how components get hold of their dependencies</li>
+            <li>When working with Controllers that depends on other modules, it's preferrable to use the <code><span style="color:#fff; background: rgb(255, 0, 145); color:#fff;">$inject</span></code> property annotation</li>
+            <li><pre>
+angular
+    .module('myApp', [
+            '<span style="background: yellow;">ngRoute</span>', 
+            '<span style="background: yellow;">ngAnimate</span>', 
+            '<span style="background: yellow;">validation.match</span>', 
+            '<span style="background: yellow;">ui.bootstrap</span>', 
+            '<span style="background: yellow;">toaster</span>']);
+          </pre></li>
+
+           
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li>Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li class="fade-me">Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="new-terms-routing" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        
+        <div class="info-container">
+          <ol class="info-modal more-to-right">
+            <li>AngularJS routes let you create different URLs for different content in your application.</li>
+            <li>Routes watches the URL to map the path to an existing route definition</li>
+            <li><pre>
+.config([ '<span style="background: yellow;">$routeProvider</span>',     
+    
+    function($routeProvider) {
+      
+      $routeProvider
+        .when('/login', {
+          templateUrl: 'login.html',
+          controller: 'LoginController'
+        .otherwise({
+          redirectTo: '/'
+    });
+}];
+
+&lt!-- <span style="background: rgb(255, 0, 145); color:#fff;">http://appexample.com/#login</span> --&gt;</pre></li>
+
+           
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li>Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li class="fade-me">Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="new-terms-controllers" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        
+        <div class="info-container">
+          <ol class="info-modal more-to-right">
+            <li>The Controller class contains business logic of your application</li>
+            <li>Do NOT use controllers for DOM manipulation, instead use <code>data-binding</code> and <code>directives</code></li>
+            <li>Do NOT use controllers to share data across controllers, instead use <code>angular services</code></li>
+            <li><pre>
+angular
+    .module('myApp')
+    .controller('LoginController', 
+                    <span style="background: yellow;">LoginController</span>);
+
+<span style="background: yellow;">LoginController</span>.$inject = ['$scope', 
+                           'toaster'];
+
+function <span style="background: yellow;">LoginController</span>($scope,
+                         toaster){
+  ...
+};
+</pre></li>
+
+           
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li>Controllers</li>
+            <li class="fade-me">Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+    <div id="new-terms-views" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        
+        <div class="info-container">
+          <ol class="info-modal move-to-left more-width more-left">
+            <li>Includes the rendered template of the current route into the main layout &nbsp;&nbsp;&nbsp;<code>&lt;div ng-view="">&lt;div></code></li>
+            <li>When a route change, the view change according to the app configuration</li>
+            <li><pre>
+&lt;form name="providerLogin">
+  &lt;fieldset>
+
+    &lt;legend> <span style="background: yellow;">{{ message }}</span> &lt;/legend>
+
+    &lt;label>Username:&lt;/label>
+    &lt;input type="text" <span style="background: yellow;">ng-model="user.name"</span>>
+
+    &lt;label>Email:&lt;/label>
+    &lt;input type="email" <span style="background: yellow;">ng-model="user.email"</span>>
+  
+    &lt;input type="submit" value="Login">
+
+  &lt;/fieldset>
+&lt;/form></pre></li>
+
+           
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li>Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="new-terms-scope-and-data-binding" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        
+        <div class="info-container">
+          <ol class="info-modal move-to-left more-width more-left">
+            <li>Scope as Data-Model is the glue between the Controller and the View</li>
+            <li>It provides "watchers" to observe the model mutations - <code><span style="color:#fff; background: rgb(255, 0, 145);">$watch</span></code></li>
+            <li>It secures the propagation of any model changes through the system</li>
+            <li><pre>
+function LoginController($scope, toaster){
+  <span style="background: yellow;">$scope</span>.user = {
+    name: 'John Doe',
+    email: 'john.doe@example.co'
+  };
+
+  <span style="background: yellow;">$scope</span>.message = 'This is the Login View!';
+};
+</pre></li>
+
+           
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li class="fade-me">Views</li>
+            <li>Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="new-terms-directive" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>  
+        
+        <div class="info-container">
+          <ol class="info-modal move-to-left more-width more-left">
+            <li>Directives are a way to teach HTML new tricks</li>
+            <li>They are markers on a DOM element</li>
+            <li>Directives could be an element name, attribute or CSS class</li>
+            <li><pre>
+angular.module('myApp')
+       .directive('<span style="background: yellow;">spinner</span>', createSpinner);
+
+function createSpinner() {
+  return {
+    scope: false, 
+    restrict: 'EA', 
+    templateUrl: 'templates/spinner.html',
+    link: function(scope, iElm, iAttrs) {...}
+  };
+}
+
+&lt;div <span style="color:#fff; background: rgb(255, 0, 145);">spinner</span>>&lt;/div>
+&lt;!-- OR -->
+<span style="color:#fff; background: rgb(255, 0, 145);">&lt;spinner /></span>
+</pre></li>
+
+           
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li class="fade-me">Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li>Directives</li>
+            <li class="fade-me">Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="new-terms-factory" class="step new-terms" data-x="1900" data-y="3600" data-z="-3000" data-rotate="300" data-scale="0">
+        <p class="title large-text underline">New Terms <span class="unique-color">&amp;</span> Concepts</p>
+        
+        <div class="info-container">
+          <ol class="info-modal move-to-left more-width more-left">
+            <li>It's a way to register and create your own service</li>
+            <li>Sharing data between Controllers should be taken care of in a service</li>
+            <li>It's about Single Responsibility Principle</li>
+            <li><pre>
+angular
+  .module('myApp')
+  .factory('broadcastProfile', 
+                    <span style="background: yellow;">broadcastProfile</span>);
+
+function <span style="background: yellow;">broadcastProfile</span>)() {
+
+  // Getter/Setter
+
+}
+</pre></li>
+          </ol>
+          <ul>
+            <li class="fade-me">Modules</li>
+            <li class="fade-me">Dependency Injection</li>
+            <li class="fade-me">Routing</li>
+            <li class="fade-me">Controllers</li>
+            <li class="fade-me">Views</li>
+            <li class="fade-me">Scope &amp; data-binding</li>
+            <li class="fade-me">Directives</li>
+            <li>Factory</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DELETE HERE -->
+
+      <div id="ng-architecture" class="step" data-x="2500" data-y="3600" data-z="0" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">Angular <span class="unique-color">Architecture</span></p>
+        
+        <div class="text-center" data-jmpress="fade after 500ms" class="will-fade">
+         <img src="images/a30bb437.ng-architecture.jpg">
+        </div>
+        
+      </div>
+
+      <div id="demo" class="step" data-x="2500" data-y="4200" data-z="0" data-rotate="0" data-scale="0">
+        <p class="title large-text underline">Demo</p>
+      
+        
+      </div>
+
+      
+     
+      
+    </div>
+
+    
+
+
+    <script src="scripts/639788b6.vendor.js"></script>
+
+    <script src="scripts/3fdd1acf.main.js"></script>
+</body>
+</html>

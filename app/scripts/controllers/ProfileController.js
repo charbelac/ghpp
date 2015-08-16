@@ -17,12 +17,14 @@
 		.module('GHPP')
 		.controller('ProfileController', ProfileController);
 
-	ProfileController.$inject = ['$scope', '$location', 'SugarServices', 'sharedDate', 'broadcastProfile', 'broadcastEnvelope'];
+	ProfileController.$inject = ['$scope', '$location', 'SugarServices', 'sharedDate', 'broadcastProfile', 'broadcastEnvelope', '$timeout'];
 
-	function ProfileController ($scope, $location, SugarServices, sharedDate, broadcastProfile, broadcastEnvelope) {
+	function ProfileController ($scope, $location, SugarServices, sharedDate, broadcastProfile, broadcastEnvelope, $timeout) {
 
 		$scope.addVacancy = addVacancy;
+		$scope.docuSign = {};
 		$scope.isToolTip = false;
+		$scope.profileLoaded = true;
 		$scope.refresh = refresh;
 		$scope.removeVacancy = removeVacancy;
 		$scope.saveFacility = saveFacility;
@@ -30,9 +32,15 @@
 		$scope.userEmail = sessionStorage.getItem('userEmail');
 
 		var token = sessionStorage.getItem('authToken');
+		
 		fetchProfileOnLoadView();
 		
-		// Update Availibility Date through the sharedDate Service 
+		/////////////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////////////
+
+		/* Update Availibility Date through the sharedDate Service */
 		$scope.$watch(function () { 
 			return sharedDate.getDate(); 
 		}, function (newDate) {
@@ -40,16 +48,22 @@
 				$scope.organization.vacancies[newDate.id].availability = newDate.val;
 		});
 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		$scope.$watch('facilityInfoForm', function(form){
 
-		// Fired When Image Successfuly Added To The scope
+			$timeout( function(){
+				if($('#provider-profile').find('.save-changes').prop('disabled')) {
+					$scope.isToolTip = true;
+				}
+			}, 2000);
+			
+			if (!localStorage['profile-tutorial']) {
+				localStorage.setItem('profile-tutorial', 'false');
+				$scope.isToolTip = true;
+			} 
+		});
+
 		$scope.onSuccess = function(file, msg) {
-			//console.warn(file, msg);	
-		}
-
-		if (!localStorage['profile-tutorial']) {
-			localStorage.setItem('profile-tutorial', 'true');
-			$scope.isToolTip = true;
+			//console.warn(file, msg);
 		}
 
 		function fetchProfileOnLoadView() {
@@ -68,6 +82,13 @@
 			} else {
 				$location.path('/');
 			}
+
+			SugarServices
+				.fetchDocuSign(token)
+				.then(function(){
+					$scope.docuSign =  broadcastEnvelope.getResponse();
+					$scope.profileLoaded = false;
+				});
 			
 			// This should be moved to toaster directive
 			$('#toast-container').removeClass('login-toaster');
@@ -108,6 +129,7 @@
 				vacancy.availability = '01-02-2015';	
 			}
 			vacancy.delFlag = 'true';
+			saveFacility();
 		};
 
 		function signOut() {

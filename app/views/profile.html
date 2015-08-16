@@ -139,6 +139,37 @@
 		</div>
 
 		<div class="right-rail">
+
+			<div class="tools">
+				<span>Document Signatures</span>
+			</div>
+
+			<div id="docu-sign">
+				<div class="list-doc-required" ng-show="docuSign.signatures.length">
+					<p class="list-title">Signature required</p>
+					<p class="admin-message">Your profile will remain disabled until you sign all the required documents below. After signing, please click the refresh <span>icon</span> to enable your profile. <em class="down-arrow-of-admin"></em></p>
+					<ul ng-repeat="doc in docuSign.signatures">
+						<li>
+							<a href="{{doc.signatureUrl}}" title="{{doc.message}}" target="_blank"> {{doc.subject}} </a>
+							<p>
+								<span>Sent on: </span>
+								<span class="doc-date">{{doc.sentDateTime}}</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+
+				<p class="list-title">Completed documents</p>
+				<ul class="list-doc-completed" ng-repeat="doc in docuSign.documentHistory">
+					<li>
+						<a href="{{doc.completedUrl}}" title="{{doc.message}}" target="_blank"> {{doc.subject}}</a>
+						<p>
+							<span>Signed on: </span>
+							<span class="doc-date">{{doc.completedDateTime}}</span>
+						</p>
+					</li>
+				</ul>
+			</div>
 			
 			<div class="tools">
 				<span>Manage Vacancies</span>
@@ -227,8 +258,9 @@
 		<ul class="fright">
 			<li>Website <span>Development</span></li>
 			<li>Mobile <span>Apps</span></li>
-			<li>Online <span>Marketing</span></li>
+			<li>Online <span>Visibility</span></li>
 		</ul>
-		<p class="notes">Xngage is bigger than .....</p>
+		<p class="notes">At Good Hands Placement Agency LLC, we continue to challenge our trusted partner, Xngage LLC., to help us better serve our valued Clients and our Provider Network. 
+		<br>We are very excited to jointly bringing Good Hands Provider Portal to you. Providers in our network can now inform us about vacancies and share important information on their terms, allowing us to find &amp; place your next tenants and patrons faster and more effectively. We encourage you to contact Xngage LLC. and find out how your business can benefit from working with the digital solutions experts.</p>
 	</a>
 </div>

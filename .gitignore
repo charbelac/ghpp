@@ -6,3 +6,4 @@ pimcore
 .tmp
 .sass-cache
 bower_components
+.DS_Store

@@ -26,7 +26,8 @@
 			loginProvider: loginProvider,
 			registerProvider: registerProvider,
 			updateProfile: updateProfile,
-			getProfile: getProfile
+			getProfile: getProfile,
+			fetchDocuSign: fetchDocuSign
 		};
 
 		/////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,7 +115,6 @@
 			return $http.get('http://' + host + '/providerdata?AuthToken=' + tkn + '&rand=' + rand)
 						.then(	function(response){
 									broadcastProfile.setResponse(response.data);
-									console.log('HERE', response.data.images[2].source);
 									if ($location.path() === '/') $location.path('/profile');
 							}, 	function(reason){ 
 									var text = reason.statusText,
@@ -134,25 +134,25 @@
 
 		
 
-		// function fetchDocuSign(tkn) {
+		function fetchDocuSign(tkn) {
 
-		// 	return $http.get('http://' + host + '/docsandsignatures?AuthToken=' + tkn)
-		// 	//return $http.get('http://localhost:8888/dist/data/docusign.json')
-		// 				.then( function(response){
-		// 					var doc = response.data;
+			return $http.get('http://' + host + '/docsandsignatures?AuthToken=' + tkn)
+			//return $http.get('http://localhost:8888/dist/data/docusign.json')
+						.then( function(response){
+							var doc = response.data;
 							
-		// 					for (var i=0; i<doc.signatures.length; i++)
-		// 						doc.signatures[i].sentDateTime = moment.utc(doc.signatures[i].sentDateTime).local().format('MM-DD-YYYY');	
+							for (var i=0; i<doc.signatures.length; i++)
+								doc.signatures[i].sentDateTime = moment.utc(doc.signatures[i].sentDateTime).local().format('MM-DD-YYYY');	
 							
-		// 					for (var j=0; j<doc.documentHistory.length; j++)
-		// 						doc.documentHistory[j].completedDateTime = moment.utc(doc.documentHistory[j].completedDateTime).local().format('MM-DD-YYYY');	
+							for (var j=0; j<doc.documentHistory.length; j++)
+								doc.documentHistory[j].completedDateTime = moment.utc(doc.documentHistory[j].completedDateTime).local().format('MM-DD-YYYY');	
 							
-		// 					broadcastEnvelope.setResponse(doc);
+							broadcastEnvelope.setResponse(doc);
 							
-		// 				}, function(reason){
-		// 					toaster.pop('error', 'Sorry, Something went wrong.', 'Please try again!');
-		// 				});
-		// }
+						}, function(reason){
+							toaster.pop('error', 'Sorry, Something went wrong.', 'Please try again!');
+						});
+		}
 	}
 
 	/** @function broadcastProfile 

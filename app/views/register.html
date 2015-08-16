@@ -4,18 +4,35 @@
 		<form name="registrationForm" ng-submit="onRegistration(registrationForm.$valid)" novalidate>
 			<small>All fields are required!</small>
 			<div class="left">
+
+
 				<div class="fieldset">
 					<label>Organization Name:</label>
 					<input 	type="text" class="contactInputText" name="organization" 
+							required max-length="100" 
 							ng-model="provider.organizationName"
-							required max-length="100" ng-pattern="/^([a-zA-Z0-9'., _-])*$/">
-					<span class="input-error" ng-show="registrationForm.organization.$error.required && registrationForm.organization.$dirty">Required</span>
-					<span class="input-error long-input-error" ng-show="registrationForm.organization.$error.pattern">Organization should contain letters and/or numbers only </span>
+							ng-pattern="/^([a-zA-Z0-9'., _-])*$/">
+
+					<span 
+						class="input-error" 
+						ng-show="registrationForm.organization.$error.required && registrationForm.organization.$dirty">Required</span>
+					
+					<span 
+						class="input-error long-input-error" 
+						ng-show="registrationForm.organization.$error.pattern">Organization should contain letters and/or numbers only </span>
+				
+
+
 				</div>
+				
+
 				<div class="fieldset">
 					<label>First Name:</label>
-					<input 	type="text" class="contactInputText" required ng-model="provider.firstName" name="firstName" 
-							max-length="100" ng-pattern="/^([a-zA-Z0-9'., _-])*$/">
+					<input 	type="text" class="contactInputText" 
+							required name="firstName" max-length="100"
+							ng-model="provider.firstName"
+							ng-pattern="/^([a-zA-Z0-9'., _-])*$/">
+
 					<span class="input-error" ng-show="registrationForm.firstName.$error.required && registrationForm.firstName.$dirty">Required</span>
 					<span class="input-error long-input-error" ng-show="registrationForm.firstName.$error.pattern">First name should contain letters and/or numbers only </span>
 				</div>

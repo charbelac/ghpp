@@ -24,6 +24,7 @@
   .right {
     float: right;
     width: 45%;
+    margin-right: 5px;
   }
 
 }
@@ -2046,11 +2047,10 @@ small {
   .notes {
     width: 100%;
     clear: both;
-    font-size: 17px;
-    padding-top: 30px;
+    font-size: 1.2em;
+    padding: 30px 20px 0;
     color: rgb(68, 75, 90);
     text-align: center;
-    font-weight: 700;
   }
 
   ul {

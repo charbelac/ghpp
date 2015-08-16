@@ -14,12 +14,16 @@
 
 				$($elm).on('click', function(){
 
-					var li = $('.vacancy > li:last-child'),
-						top = li.offset().top + 300;
+					if ($('.vacancy > li:last-child').length) {
+						var li = $('.vacancy > li:last-child');
+						var top = li.offset().top + 300;
+						
+						$("body").animate({scrollTop: top }, 600, function() {
+											$('.vacancy > li:last-child').addClass('vacancy-color-transition');
+										});
+					}
+
 					
-					$("body").animate({scrollTop: top }, 600, function() {
-										$('.vacancy > li:last-child').addClass('vacancy-color-transition');
-									});
 				});
 
 			}
