@@ -18,7 +18,7 @@
 		<div class="left-rail">
 			<div class="tools">
 				<span>Facility Info</span>
-				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid} " class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
+				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 			</div>
 			
 			<div class="general-info" id="general-info">
@@ -113,7 +113,7 @@
 
 			<div class="tools">
 				<span>Facility Images</span> 
-				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid }" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
+				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 			</div>
 
 			<ul class="facility-images">
@@ -173,10 +173,10 @@
 			
 			<div class="tools">
 				<span>Manage Vacancies</span>
-				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
+				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 				<button type="submit" class="add-new" title="Add New Vacancy" ng-click="addVacancy()" id="add-new-btn" 
 						ng-disabled="facilityInfoForm.$invalid" 
-						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid}" 
+						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" 
 						scroll-on-creation></button>
 			</div>
 
