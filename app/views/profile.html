@@ -1,5 +1,7 @@
 <div class="provider-forms provider-profile" id="provider-profile">
-	
+	<div class="warning-message" ng-show="docuSign.signatures.length != '0' || facilityInfoForm.$invalid">
+	  <p>Please make sure all required fields are valid and all pending contract are signed. </p>
+	</div>
 	<div id="spinner" ng-show="profileLoaded" spinner></div>
 
 	<div class="profile-header">
