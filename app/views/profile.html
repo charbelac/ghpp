@@ -1,7 +1,7 @@
 <div class="provider-forms provider-profile" id="provider-profile">
-	<div class="warning-message" ng-show="docuSign.signatures.length != '0' || facilityInfoForm.$invalid">
+	<!--<div class="warning-message" ng-show="docuSign.signatures.length != '0' || facilityInfoForm.$invalid">
 	  <p>Please make sure all required fields are valid and all pending contract are signed. </p>
-	</div>
+	</div>-->
 	<div id="spinner" ng-show="profileLoaded" spinner></div>
 
 	<div class="profile-header">
@@ -99,10 +99,10 @@
 						<span class="input-error" ng-show="facilityInfoForm.zipCode.$error.pattern">Please enter a valid zip code</span>
 					</div>
 					<div>
-						<label>Country: *</label>
-						<input type="text" ng-model="organization.country" name="country" placeholder="USA" required maxlength="30">
+						<label>Country:</label>
+						<input type="text" ng-model="organization.country" name="country" placeholder="USA" maxlength="30">
 						<span class="edit-icon"></span>
-						<span class="input-error" ng-show="facilityInfoForm.country.$error.required && facilityInfoForm.country.$dirty">Required</span>
+						<!--<span class="input-error" ng-show="facilityInfoForm.country.$error.required && facilityInfoForm.country.$dirty">Required</span>-->
 						<!-- <span class="input-error" style="top:-61px;" ng-show="facilityInfoForm.country.$error.pattern">City should contain letters and/or numbers only</span> -->
 					</div>
 				</address>
