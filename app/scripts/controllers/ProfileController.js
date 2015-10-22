@@ -79,8 +79,6 @@
 					$scope.organization = broadcastProfile.getResponse();
 				}
 				
-				$scope.organization.country = 'USA';
-				
 			} else {
 				$location.path('/');
 			}
