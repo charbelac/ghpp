@@ -1,7 +1,8 @@
 <div class="provider-forms provider-profile" id="provider-profile">
-	<!--<div class="warning-message" ng-show="docuSign.signatures.length != '0' || facilityInfoForm.$invalid">
-	  <p>Please make sure all required fields are valid and all pending contract are signed. </p>
-	</div>-->
+	<div class="warning-message" ng-class="{'stop-message': facilityInfoForm.$invalid, 'go-message':facilityInfoForm.$valid}">
+	  <p ng-if="facilityInfoForm.$invalid">Please make sure all required fields are valid. </p>
+	  <p ng-if="facilityInfoForm.$valid">All fields are valid.</p>
+	</div>
 	<div id="spinner" ng-show="profileLoaded" spinner></div>
 
 	<div class="profile-header">
@@ -20,7 +21,7 @@
 		<div class="left-rail">
 			<div class="tools">
 				<span>Facility Info</span>
-				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'} " class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
+				<button type="submit" title="Save facility info" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid} " class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 			</div>
 			
 			<div class="general-info" id="general-info">
@@ -62,7 +63,7 @@
 				<div class="org-desc">
 					<label>Description:</label>
 					<textarea ng-model="organization.description" placeholder="Facility Description" maxlength="270"></textarea>
-					<p><em>Characters remaining: <span>{{270 - organization.description.length}}</span></em></p>
+					<p>Characters remaining: <span>{{270 - organization.description.length}}</span></p>
 					<span class="edit-icon"></span>
 				</div>
 			</div>
@@ -100,7 +101,7 @@
 					</div>
 					<div>
 						<label>Country:</label>
-						<input type="text" ng-model="organization.country" name="country" placeholder="USA" maxlength="30">
+						<input type="text" ng-model="organization.country" name="country" placeholder="USA" maxlength="30" value="USA">
 						<span class="edit-icon"></span>
 						<!--<span class="input-error" ng-show="facilityInfoForm.country.$error.required && facilityInfoForm.country.$dirty">Required</span>-->
 						<!-- <span class="input-error" style="top:-61px;" ng-show="facilityInfoForm.country.$error.pattern">City should contain letters and/or numbers only</span> -->
@@ -115,7 +116,7 @@
 
 			<div class="tools">
 				<span>Facility Images</span> 
-				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
+				<button type="submit" title="Save facility images" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 			</div>
 
 			<ul class="facility-images">
@@ -175,10 +176,10 @@
 			
 			<div class="tools">
 				<span>Manage Vacancies</span>
-				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
+				<button type="submit" title="Save updated vacancy" ng-class="{ 'disable-btn' : facilityInfoForm.$invalid }" class="save-changes" ng-disabled="facilityInfoForm.$invalid"></button>
 				<button type="submit" class="add-new" title="Add New Vacancy" ng-click="addVacancy()" id="add-new-btn" 
 						ng-disabled="facilityInfoForm.$invalid" 
-						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid || docuSign.signatures.length != '0'}" 
+						ng-class="{ 'disable-btn' : facilityInfoForm.$invalid }" 
 						scroll-on-creation></button>
 			</div>
 
